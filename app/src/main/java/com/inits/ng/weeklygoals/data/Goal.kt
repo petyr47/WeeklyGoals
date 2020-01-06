@@ -2,6 +2,7 @@ package com.inits.ng.weeklygoals.data
 
 import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.*
 
 
@@ -10,6 +11,9 @@ data class Goal(
 
     @Embedded
     val week: Week,
+
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
 
     var isCompleted: Boolean = false,
 
