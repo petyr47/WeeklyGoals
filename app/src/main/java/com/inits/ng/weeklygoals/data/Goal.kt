@@ -1,5 +1,6 @@
 package com.inits.ng.weeklygoals.data
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import java.util.*
 
@@ -7,6 +8,7 @@ import java.util.*
 @Entity(tableName = "goal_table")
 data class Goal(
 
+    @Embedded
     val week: Week,
 
     var isCompleted: Boolean = false,
