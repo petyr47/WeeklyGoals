@@ -4,4 +4,6 @@ import com.inits.ng.weeklygoals.data.AppDatabase
 
 class GoalRepository(private val db : AppDatabase) {
 
+    private val dao = db.dao()
+
 }
