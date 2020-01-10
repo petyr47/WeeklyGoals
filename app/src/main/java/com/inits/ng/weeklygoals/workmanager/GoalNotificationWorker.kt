@@ -19,6 +19,9 @@ class GoalNotificationWorker(private val context: Context, workerParameters: Wor
     override suspend fun doWork(): Result = coroutineScope {
         try {
             val goals = goalRepository.fetchAllGoals()
+            if (goals.isEmpty()) {
+                return@coroutineScope Result.failure()
+            }
             goals.filter {
                 it.isActiveGoal()
             }.forEach {
