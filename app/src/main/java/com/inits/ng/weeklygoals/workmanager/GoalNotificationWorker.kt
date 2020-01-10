@@ -8,6 +8,7 @@ import androidx.work.WorkerParameters
 import com.inits.ng.weeklygoals.goals.GoalRepository
 import com.inits.ng.weeklygoals.utils.sendNotification
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -31,6 +32,7 @@ class GoalNotificationWorker(private val context: Context, workerParameters: Wor
                 ) as NotificationManager
 
                 notificationManager.sendNotification(it.title, context)
+                delay(300000)
             }
             Result.success()
         } catch (e: Exception) {
