@@ -9,7 +9,7 @@ interface GoalDao {
     @Insert
     suspend fun saveGoal(goal : Goal)
 
-    @Query("DELETE FROM goal_table WHERE id == :id")
+    @Query("DELETE FROM goal_table WHERE id = :id")
     suspend fun deleteGoal(id: Int)
 
     @Update
