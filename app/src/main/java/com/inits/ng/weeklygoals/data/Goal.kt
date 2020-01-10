@@ -23,6 +23,6 @@ data class Goal(
 ) {
     fun isActiveGoal(): Boolean {
         val time = Date(Calendar.getInstance().timeInMillis)
-        return (time.after(Date(week.endStamp)) || time.before(Date(week.startStamp)))
+        return (time.after(Date(week.endStamp)) && time.before(Date(week.startStamp)))
     }
 }
