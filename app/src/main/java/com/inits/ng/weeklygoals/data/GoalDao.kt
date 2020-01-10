@@ -15,6 +15,9 @@ interface GoalDao {
     @Update
     suspend fun updateGoal(goal: Goal): Int
 
+    @Delete
+    suspend fun removeGoal(goal: Goal)
+
     @Query("SELECT * FROM goal_table")
     fun observeAllGoals(): LiveData<List<Goal>>
     //removed suspend to make it a normal function since livedata is already async
