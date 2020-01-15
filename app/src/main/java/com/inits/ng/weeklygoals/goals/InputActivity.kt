@@ -2,6 +2,7 @@ package com.inits.ng.weeklygoals.goals
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -29,6 +30,7 @@ class InputActivity : AppCompatActivity() {
                 makePicker()
             }
         }
+        back_image_btn.setOnClickListener { onBackPressed() }
         time_input.setOnClickListener { makePicker() }
         setupObservers()
 
@@ -54,7 +56,20 @@ class InputActivity : AppCompatActivity() {
     private fun setupObservers(){
         inputViewModel.errorMessage.observe(this, Observer {
             it?.let {
-                Snackbar.make(add_goal_root, it, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(add_goal_root, it, Snackbar.LENGTH_LONG).apply {
+                    anchorView = extendedFloatingActionButton
+                    show()
+                }
+            }
+        })
+
+        inputViewModel.success.observe(this, Observer {
+            it?.let {
+                if(it){
+                    Handler().postDelayed({
+                        finish()
+                    },1000)
+                }
             }
         })
     }
