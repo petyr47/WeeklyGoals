@@ -10,5 +10,7 @@ data class Week(
 
     val endStamp: Long,
 
+    val dateString: String,
+
     var index: Int = 1
 )
