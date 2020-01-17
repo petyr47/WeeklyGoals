@@ -35,6 +35,14 @@ class GoalRepository(private val db: AppDatabase) {
         }
     }
 
+    suspend fun fetchGoal(id: Int): Goal? {
+        return try {
+            dao.fetchGoal(id)
+        } catch (e: Exception) {
+            null
+        }
+    }
+
 
     suspend fun updateGoal(goal: Goal): Boolean =
         try {
