@@ -17,6 +17,8 @@ class InputActivity : AppCompatActivity() {
     private val  inputViewModel : InputViewModel by viewModel()
     private lateinit var binding : LayoutInputGoalBinding
 
+    private val DEFAULT_ID = 1909999
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_input_goal)
@@ -24,6 +26,13 @@ class InputActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.layout_input_goal)
         binding.lifecycleOwner = this
         binding.viewModel = inputViewModel
+
+        val id = intent.getIntExtra("id", DEFAULT_ID)
+        if (!(id == DEFAULT_ID)) {
+            inputViewModel.id=id
+            inputViewModel.makeEditMode()
+        }
+
 
         time_input.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
@@ -68,7 +77,7 @@ class InputActivity : AppCompatActivity() {
                 if(it){
                     Handler().postDelayed({
                         finish()
-                    },1000)
+                    },750)
                 }
             }
         })
