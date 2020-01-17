@@ -28,6 +28,7 @@ class GoalAdapter(val context: Context, val list : List<Goal>) : RecyclerView.Ad
         fun bindGoal(goal: Goal){
             itemView.item_title.text = goal.title
             itemView.item_message.text = goal.message
+            itemView.imageView1.setOnClickListener { onItemDeleteClicked?.invoke(goal) }
             itemView.imageView.setOnClickListener { onItemEditClicked?.invoke(goal.id) }
             itemView.item_time_range.text = goal.week.dateString
         }
