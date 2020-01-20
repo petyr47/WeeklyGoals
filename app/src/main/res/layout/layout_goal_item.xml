@@ -128,6 +128,21 @@
 
             </ScrollView>
 
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:id="@+id/item_completed"
+                android:text="Complete"
+                android:textColor="@android:color/black"
+                app:iconGravity="start"
+                app:iconPadding="8dp"
+                app:icon="@drawable/ic_history"
+                app:iconTint="@android:color/darker_gray"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
