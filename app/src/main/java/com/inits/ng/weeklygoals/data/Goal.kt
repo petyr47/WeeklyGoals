@@ -22,7 +22,8 @@ data class Goal(
     var message: String
 ) {
     fun isActiveGoal(): Boolean {
+        if(isCompleted) return false
         val time = Date(Calendar.getInstance().timeInMillis)
-        return (time.after(Date(week.endStamp)) && time.before(Date(week.startStamp)))
+        return (time.after(Date(week.startStamp)) && time.before(Date(week.endStamp)))
     }
 }
