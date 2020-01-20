@@ -134,6 +134,7 @@
                 android:padding="8dp"
                 android:id="@+id/item_completed"
                 android:text="Complete"
+                android:tooltipText="Mark work completed"
                 android:textColor="@android:color/black"
                 app:iconGravity="start"
                 app:iconPadding="8dp"
@@ -151,6 +152,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="16dp"
+                android:tooltipText="Edit"
                 app:srcCompat="@drawable/ic_pencil"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView1" />
@@ -162,6 +164,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:tooltipText="Delete"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_delete"
                 app:layout_constraintBottom_toBottomOf="parent"
