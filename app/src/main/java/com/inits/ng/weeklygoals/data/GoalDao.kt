@@ -20,7 +20,7 @@ interface GoalDao {
 
     @Query("SELECT * FROM goal_table")
     fun observeAllGoals(): LiveData<List<Goal>>
-    //removed suspend to make it a normal function since livedata is already async
+    //removed suspend to make it a normal function since live data is already async
 
     @Query("SELECT * FROM goal_table")
     suspend fun fetchAllGoals(): List<Goal>
