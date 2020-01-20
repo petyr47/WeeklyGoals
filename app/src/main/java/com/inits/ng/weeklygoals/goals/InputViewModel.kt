@@ -70,14 +70,11 @@ class InputViewModel(private val repository: GoalRepository) : ViewModel() {
     fun saveGoalClicked() {
         if (validateFields()) {
             val week = Week(
-                startDate = makeDateFromEpoch(startStamp.value!!),
-                endDate = makeDateFromEpoch(endStamp.value!!),
                 endStamp = endStamp.value!!,
                 startStamp = startStamp.value!!,
                 dateString = displayDate.value!!
             )
             if (id == 0) {
-
                 val goal = Goal(
                     week = week,
                     title = title.value!!,
@@ -99,7 +96,6 @@ class InputViewModel(private val repository: GoalRepository) : ViewModel() {
                     message = description.value!!
                 )
                 viewModelScope.launch(Dispatchers.IO) {
-
                     val result = repository.updateGoal(goal = edittedGoal)
                     success.postValue(result)
                     if (result) {
