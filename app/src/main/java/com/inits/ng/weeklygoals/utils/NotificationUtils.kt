@@ -33,6 +33,7 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     )
         .setSmallIcon(R.drawable.ic_target)
         .setContentTitle(applicationContext.getString(R.string.app_name))
+        .setStyle(NotificationCompat.BigTextStyle().bigText(messageBody))
         .setContentText(messageBody)
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)
