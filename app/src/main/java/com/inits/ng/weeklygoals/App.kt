@@ -28,7 +28,7 @@ class App: Application() {
     }
 
     private fun registerWorker(){
-        val work = PeriodicWorkRequestBuilder<GoalNotificationWorker>(16, TimeUnit.MINUTES)
+        val work = PeriodicWorkRequestBuilder<GoalNotificationWorker>(6, TimeUnit.HOURS)
             .addTag("goal-notif-work")
             .build()
 
